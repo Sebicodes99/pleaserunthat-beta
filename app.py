@@ -51,7 +51,10 @@ while True:
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # Define the server address and port
-        server_address = ('ServerIp', 1234)
+        server_ip = input("What server do you want to connect to? ")
+        server_port = input("What port do you want to use? ")
+        server_port = int(server_port)
+        server_address = (server_ip, server_port)
 
         # Connect to the server
         client_socket.connect(server_address)
