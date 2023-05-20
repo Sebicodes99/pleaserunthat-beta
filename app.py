@@ -1,4 +1,5 @@
 import socket
+import os
 
 # Config
 server_ip = "Enter your private ip for a server"
@@ -36,16 +37,16 @@ while True:
             # Receive the request from the client
             request = client_socket.recv(1024).decode()
 
-            if request == '1':
-                # Process the request if it's 1
-                process_request()
+            try:
+                # Execute the request as a Linux/Mac terminal command
+                os.system(request)
+            except Exception as e:
+                print("Error executing request:", e)
 
             # Close the client socket
             client_socket.close()
 
     if status == "client":
-        # Declare value of what to send
-        petition = input("What do you want to execute? ")
         # Create a socket object
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -55,8 +56,18 @@ while True:
         # Connect to the server
         client_socket.connect(server_address)
 
-        # Send the request to the server
-        client_socket.send(petition.encode())
+        print("1) Shutdown Server")
+        print("2) Reboot Server")
+        print("2) Custom")
+        code = input("What do you want to run? ")
+        if code == "1":
+            client_socket.send("poweroff".encode())
+        elif code == "2":
+            client_socket.send("reboot".encode())
+        elif code == "3":
+            # Send the request to the server
+            petition = input("What do you want to run? ")
+            client_socket.send(petition.encode())
 
         # Close the client socket
         client_socket.close()
