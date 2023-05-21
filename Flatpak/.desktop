@@ -5,4 +5,4 @@ Type=Application
 Terminal=true
 Exec=/app/bin/app.py
 Name=PleaseRunThat
-Icon=/app/share/icons/hicolor/128x128/apps/io.github.Prt.Sebicodes99.png
+Icon=/app/share/icons/hicolor/128x128/apps/io.github.Sebicodes99.Prt.png
