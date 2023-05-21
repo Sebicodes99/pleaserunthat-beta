@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
-    <id>io.github.Sebicodes99.Prt</id>
-    <metadata_license>GNU General Public License v3.0</metadata_license>
-    <name>Please Run That</name>
-    <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
-    <description>
-        <p>
+  <id>io.github.Sebicodes99.Prt</id>
+
+  <metadata_license>GPL-3.0-only</metadata_license>
+  <name>Please Run That</name>
+  <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
+  <description>
+    <p>
         A Python socket app for letting a friend execute a command on your system without using a ssh server.
         It has active development and works OOTB.
         </p>
-    </description>
+  </description>
+
+  <project_license>GPL-3.0-only</project_license>
+
+  <developer_name>Sebicodes99</developer_name>
+
+
+  <url type="homepage">https://github.com/Sebicodes99/pleaserunthat-beta</url>
+
+
+  <url type="bugtracker">https://github.com/Sebicodes99/pleaserunthat-beta/issues</url>
+
+  <!--FIXME: where on the internet users can find help-->
+  <url type="help">https://github.com/Sebicodes99/pleaserunthat-beta</url>
+
 </component>
+
+
+
+
+
+
+
+
