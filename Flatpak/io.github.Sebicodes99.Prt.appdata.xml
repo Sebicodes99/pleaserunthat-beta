@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="console-application">
   <id>io.github.Sebicodes99.Prt</id>
+  <content_rating type="oars-1.0" />
   <name>Please Run That</name>
   <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
   <description>
@@ -12,13 +13,13 @@
   
   <screenshots>
   <screenshot type="default">
-    <caption>The Please Run That Client.</caption>
+    <caption>The Please Run That Client</caption>
     <image type="source" width="448" height="170">https://raw.githubusercontent.com/Sebicodes99/pleaserunthat-beta/stable/Flatpak/Screenshot.png</image>
   </screenshot>
   </screenshots>
   
   <project_license>GPL-3.0-only</project_license>
-  <metadata_license>GPL-3.0-only</metadata_license>
+  <metadata_license>GNU General Public License v3.0</metadata_license>
   <developer_name>Sebicodes99</developer_name>
 
 
@@ -30,9 +31,7 @@
   <!--FIXME: where on the internet users can find help-->
   <url type="help">https://github.com/Sebicodes99/pleaserunthat-beta</url>
  <releases>
-    <release version="1.6">
-      <date>2023-05-21</date>
-      <description>¡Released app!</description>
+    <release version="1.2" date="2023-05-4" urgency="high">
     </release>
     </releases>
 </component>
