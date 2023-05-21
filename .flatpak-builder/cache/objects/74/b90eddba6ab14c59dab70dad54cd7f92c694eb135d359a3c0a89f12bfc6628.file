@@ -1,6 +1,10 @@
 import socket
 import os
 
+# Config
+server_ip = "Enter your private ip for a server"
+server_port = 1234
+
 status = input("Do you want to act as a client or server? ")
 
 while True:
@@ -14,9 +18,6 @@ while True:
         server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
         # Define the server address and port
-        server_ip = input("What ip do you want to listen on? (Must be your private ip) ")
-        server_port = input("What port do you want to listen on? (Must be the same in client) ")
-        server_port = int(server_port)
         server_address = (server_ip, server_port)
 
         # Bind the socket to the server address and port
@@ -53,9 +54,10 @@ while True:
         server_ip = input("What server do you want to connect to? ")
         server_port = input("What port do you want to use? ")
         server_port = int(server_port)
+        server_address = (server_ip, server_port)
 
         # Connect to the server
-        client_socket.connect((server_ip, server_port))
+        client_socket.connect(server_address)
 
         print("1) Shutdown Server")
         print("2) Reboot Server")
@@ -68,7 +70,6 @@ while True:
         elif code == "3":
             # Send the request to the server
             petition = input("What do you want to run? ")
-            print(petition)
             client_socket.send(petition.encode())
 
         # Close the client socket
