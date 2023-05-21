@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="desktop-application">
+<component type="console-application">
   <id>io.github.Sebicodes99.Prt</id>
   <name>Please Run That</name>
   <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
