@@ -27,7 +27,7 @@ modules:
          path: https://github.com/Sebicodes99/pleaserunthat-beta/blob/stable/Flatpak/plruth.png?raw=true
          sha256: 06b636ef882633bf779158488df8b396f91b06c3d2401078648d201ef750559a
        - type: archive
-         path:
-         sha256: 623f29b1946fe31f6eb282c48960c70e2b77ae84c0cdec18f9ac0e2317fd88a3
+         path: https://raw.githubusercontent.com/Sebicodes99/pleaserunthat-beta/stable/Flatpak/org.sebicodes.Prt.appdata.xml
+         sha256: 3e8d8375df499c97561678b73f0c92556268ec321c537d9c53438e81e531c1c9
 finish-args:
   - --share=network
