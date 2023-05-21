@@ -4,6 +4,10 @@
     <metadata_license>GNU General Public License v3.0</metadata_license>
     <name>Please Run That</name>
     <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
-
-
+    <description>
+        <p>
+        A Python socket app for letting a friend execute a command on your system without using a ssh server.
+        It has active development and works OOTB.
+        </p>
+    </description>
 </component>
