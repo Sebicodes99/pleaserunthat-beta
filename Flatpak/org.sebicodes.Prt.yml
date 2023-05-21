@@ -14,13 +14,20 @@ modules:
       - install -D .desktop /app/share/applications/com.sebicodes.Prt.desktop
       - install -D plruth.png /app/share/icons/hicolor/500x500/apps/com.sebicodes.Prt.png
     sources:
-      - type: file
-        path: app.py
-      - type: file
-        path: runner.sh
-      - type: file
-        path: .desktop
-      - type: file
-        path: plruth.png
+       - type: archive
+         url: https://raw.githubusercontent.com/Sebicodes99/pleaserunthat-beta/stable/Flatpak/.desktop
+         sha256: f65851539d48b97ef3d295a342ac2b09449d0f3e1d483e641e49499511f94325
+       - type: archive
+         path: https://raw.githubusercontent.com/Sebicodes99/pleaserunthat-beta/stable/app.py
+         sha256: 822fbcd41b88c4b1d17d324a4c0690afe190a16dd938b2488c5a2816cb6fff91
+       - type: archive
+         path: https://raw.githubusercontent.com/Sebicodes99/pleaserunthat-beta/stable/Flatpak/runner.sh
+         sha256: a333c84a33aa7671be1adf8ea8d8ee067ae922adfc7f08683d19830cffbda838
+       - type: archive
+         path: https://github.com/Sebicodes99/pleaserunthat-beta/blob/stable/Flatpak/plruth.png?raw=true
+         sha256: 06b636ef882633bf779158488df8b396f91b06c3d2401078648d201ef750559a
+       - type: archive
+         path:
+         sha256: 623f29b1946fe31f6eb282c48960c70e2b77ae84c0cdec18f9ac0e2317fd88a3
 finish-args:
   - --share=network
