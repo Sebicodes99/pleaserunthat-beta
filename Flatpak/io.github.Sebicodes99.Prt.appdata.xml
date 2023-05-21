@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>io.github.Sebicodes99.Prt</id>
-
-  <!--FIXME: convert to an SPDX ID-->
-  <metadata_license>GNU General Public License v3.0</metadata_license>
   <name>Please Run That</name>
   <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
   <description>
@@ -12,28 +9,29 @@
         It has active development and works OOTB.
         </p>
   </description>
+  
+  <screenshots>
+  <screenshot type="default">
+    <caption>The Please Run That Client.</caption>
+    <image type="source" width="448" height="170">https://raw.githubusercontent.com/Sebicodes99/pleaserunthat-beta/stable/Flatpak/Screenshot.png</image>
+  </screenshot>
+  
+  <project_license>GPL-3.0-only</project_license>
 
-  <!--FIXME: Use https://spdx.org/licenses/-->
-  <project_license><!-- Insert SPDX ID Here --></project_license>
+  <developer_name>Sebicodes99</developer_name>
 
-  <!--FIXME: You can use a project or developer name if there's no company-->
-  <developer_name><!-- Company Name --></developer_name>
 
-  <!--FIXME: homepage for the application-->
-  <url type="homepage"><!-- http://www.homepage.com/ --></url>
+  <url type="homepage">https://github.com/Sebicodes99/pleaserunthat-beta</url>
 
-  <!--FIXME: where to report bugs for the application-->
-  <url type="bugtracker"><!-- http://www.homepage.com/where-to-report_bug.html --></url>
 
-  <!--FIXME: where to donate to the application-->
-  <url type="donation"><!-- http://www.homepage.com/donation.html --></url>
+  <url type="bugtracker">https://github.com/Sebicodes99/pleaserunthat-beta/issues</url>
 
   <!--FIXME: where on the internet users can find help-->
-  <url type="help"><!-- http://www.homepage.com/docs/ --></url>
-
-  <!--FIXME: where to submit translations-->
-  <url type="translate"><!-- http://www.homepage.com/how-to-submit-translations.html --></url>
-
-  <!--FIXME: this is optional, but recommended-->
-  <update_contact><!-- upstream-contact_at_email.com --></update_contact>
+  <url type="help">https://github.com/Sebicodes99/pleaserunthat-beta</url>
+ <releases>
+    <release version="1.6">
+      <date>2023-05-21</date>
+      <description>¡Released app!</description>
+    </release>
 </component>
+
