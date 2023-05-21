@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.sebicodes.Prt</id>
+    <metadata_license>GNU General Public License v3.0</metadata_license>
+    <name>Please Run That</name>
+    <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
+
+
+</component>

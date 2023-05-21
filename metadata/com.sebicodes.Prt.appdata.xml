@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+    <id>com.sebicodes.Prt</id>
+    <name>Please Run That</name>
+    <summary>A python socket app for letting a friend execute a command on your system without opening ports or using a ssh server</summary>
+    <description>A python script that uses sockets for letting you execute code in a socket server (that runs this app) for executing commands in another computer without creating a ssh server.</description>
+
+</component>

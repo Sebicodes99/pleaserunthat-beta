@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="desktop-application">
   <id>io.github.Sebicodes99.Prt</id>
-  <content_rating type="oars-1.0" />
-  <metadata_license>GPL-3.0-only</metadata_license>
   <name>Please Run That</name>
   <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
   <description>
@@ -36,11 +34,4 @@
       <description>¡Released app!</description>
     </release>
 </component>
-
-
-
-
-
-
-
 

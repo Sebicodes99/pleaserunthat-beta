@@ -1,0 +1,43 @@
+{
+  "id" : "org.sebicodes.Prt",
+  "runtime" : "org.freedesktop.Platform",
+  "runtime-version" : "22.08",
+  "runtime-commit" : "4ba47479a973c9a243112c43f8f58244af34457611e2a26bba8595d08a2b31d7",
+  "sdk" : "org.freedesktop.Sdk",
+  "sdk-commit" : "2652112cf6f02f590602d3379a36a0e59d801a120f8ba4bb43170e75e3ab73da",
+  "command" : "runner.sh",
+  "modules" : [
+    {
+      "name" : "app",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : "app.py",
+          "type" : "file"
+        },
+        {
+          "path" : "runner.sh",
+          "type" : "file"
+        },
+        {
+          "path" : ".desktop",
+          "type" : "file"
+        },
+        {
+          "path" : "plruth.png",
+          "type" : "file"
+        }
+      ],
+      "build-commands" : [
+        "install -D runner.sh /app/bin/runner.sh",
+        "install -D app.py /app/bin/app.py",
+        "install -D .desktop /app/share/applications/com.sebicodes.Prt.desktop",
+        "install -D plruth.png /app/share/icons/hicolor/500x500/apps/com.sebicodes.Prt.png"
+      ]
+    }
+  ],
+  "finish-args" : [
+    "--share=network"
+  ],
+  "source-date-epoch" : 1684621277
+}
