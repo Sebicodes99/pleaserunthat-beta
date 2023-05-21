@@ -61,7 +61,7 @@ while True:
 
         print("1) Shutdown Server")
         print("2) Reboot Server")
-        print("2) Custom")
+        print("3) Custom")
         code = input("What do you want to run? ")
         if code == "1":
             client_socket.send("poweroff".encode())
