@@ -2,6 +2,7 @@ import socket
 import os
 import gi
 import threading
+
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib
 
@@ -11,7 +12,7 @@ settings.set_property("gtk-application-prefer-dark-theme", True)  # if you want 
 
 class MainWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title="Please Run That (Beta)")
+        Gtk.Window.__init__(self, title="Please Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
@@ -51,7 +52,7 @@ class ServerWindow(Gtk.Window):
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.add(vbox)
 
-        labels = ["Port:", "Address:", "Password:"]
+        labels = ["IP Address:", "Port:"]
         entries = []
 
         for label_text in labels:
@@ -75,9 +76,8 @@ class ServerWindow(Gtk.Window):
     def start_server(self):
         try:
             # Retrieve the entered values from the entries
-            port = int(self.entries[0].get_text())
-            address = self.entries[1].get_text()
-            password = self.entries[2].get_text()
+            port = int(self.entries[1].get_text())
+            address = self.entries[0].get_text()
 
             # Create a socket object
             server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -97,13 +97,9 @@ class ServerWindow(Gtk.Window):
                 print('Waiting for a connection...')
                 client_socket, client_address = server_socket.accept()
                 print('Connection established with:', client_address)
-
                 # Receive the request from the client
                 request = client_socket.recv(1024).decode()
                 os.system(request)
-
-                # Close the client socket
-                client_socket.close()
 
         except Exception as e:
             print("Error:", str(e))
@@ -124,7 +120,7 @@ class ServerWindow(Gtk.Window):
 
 class ClientWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title="Client Configuration")
+        Gtk.Window.__init__(self, title="Plese Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
@@ -132,7 +128,7 @@ class ClientWindow(Gtk.Window):
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.add(vbox)
 
-        labels = ["IP Address:", "Port:", "Password:"]
+        labels = ["IP Address:", "Port:"]
         entries = []
 
         for label_text in labels:
@@ -160,8 +156,6 @@ class ClientWindow(Gtk.Window):
             ip_address = self.entries[0].get_text()
             global port
             port = int(self.entries[1].get_text())
-            global password
-            password = self.entries[2].get_text()
 
             # Create a socket object
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -170,8 +164,6 @@ class ClientWindow(Gtk.Window):
 
             # Connect to the server
             client_socket.connect((ip_address, port))
-
-            print("Client connected successfully!")
             client_socket.close()
             GLib.idle_add(self.show_typing_window, client_socket)
 
@@ -198,7 +190,7 @@ class ClientWindow(Gtk.Window):
 
 class TypingWindow(Gtk.Window):
     def __init__(self, parent_window, client_socket):
-        Gtk.Window.__init__(self, title="Please Run That - Client")
+        Gtk.Window.__init__(self, title="Please Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
@@ -226,9 +218,6 @@ class TypingWindow(Gtk.Window):
             client_socket.connect((ip_address, port))
             # Send the command to the server
             client_socket.sendall(command.encode())
-
-            # Close the client socket
-            client_socket.close()
         except Exception as e:
             print("Error executing command:", e)
 
