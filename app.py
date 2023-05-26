@@ -2,12 +2,8 @@ import socket
 import os
 import gi
 import threading
-
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib
-
-settings = Gtk.Settings.get_default()
-settings.set_property("gtk-application-prefer-dark-theme", True)  # if you want use dark theme, set second arg to True
 
 
 class MainWindow(Gtk.Window):
