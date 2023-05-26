@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component type="console-application">
+<component type="desktop-application">
   <id>io.github.Sebicodes99.Prt</id>
   <content_rating type="oars-1.0" />
   <name>Please Run That</name>
-  <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server</summary>
+  <summary>A python socket app for letting a friend execute a command on your system without opening ports or using an ssh server all, with a Simple GUI</summary>
   <description>
     <p>
-        A Python socket app for letting a friend execute a command on your system without using a ssh server.
+        A Python socket app for letting a friend execute a command on your system without using a ssh server all, with a simple GUI
         It has active development and works OOTB.
         </p>
   </description>
