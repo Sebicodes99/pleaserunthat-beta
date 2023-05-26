@@ -5,7 +5,6 @@ import threading
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib
 
-
 class MainWindow(Gtk.Window):
     def __init__(self):
         Gtk.Window.__init__(self, title="Please Run That")
