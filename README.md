@@ -9,6 +9,6 @@ The app is distributed via Flathub or by opening the app.py
 ✓ Easy to use GUI <br>
 ✓ Fast <br>
 X Receives the answer from the server <br>
-X Informs the server when a command is exeucted <br>
+✓ Informs the server when a command is exeucted <br>
 
 Things that aren't marked are future plans, if you have something to add, Please feel free to open an issue
