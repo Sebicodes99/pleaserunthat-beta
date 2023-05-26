@@ -31,3 +31,4 @@ modules:
          sha256: 3e8d8375df499c97561678b73f0c92556268ec321c537d9c53438e81e531c1c9
 finish-args:
   - --share=network
+  - --socket=x11
