@@ -11,7 +11,7 @@ settings.set_property("gtk-application-prefer-dark-theme", True)  # if you want 
 
 class MainWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title="Please Run That (Beta)")
+        Gtk.Window.__init__(self, title="Please Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
@@ -124,7 +124,7 @@ class ServerWindow(Gtk.Window):
 
 class ClientWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title="Client Configuration")
+        Gtk.Window.__init__(self, title="Plese Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
@@ -198,7 +198,7 @@ class ClientWindow(Gtk.Window):
 
 class TypingWindow(Gtk.Window):
     def __init__(self, parent_window, client_socket):
-        Gtk.Window.__init__(self, title="Please Run That - Client")
+        Gtk.Window.__init__(self, title="Please Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
