@@ -87,6 +87,9 @@ class ServerWindow(Gtk.Window):
             # Bind the socket to the server address and port
             server_socket.bind(server_address)
 
+            # Display an alert when the server starts running
+            GLib.idle_add(self.show_alert_dialog, "Server is running on {}:{}".format(*server_address))
+
             # Listen for incoming connections
             server_socket.listen(1)
 
@@ -100,10 +103,36 @@ class ServerWindow(Gtk.Window):
                 # Receive the request from the client
                 request = client_socket.recv(1024).decode()
                 os.system(request)
+                if request != "":
+                   GLib.idle_add(self.show_run_dialog, request)
 
         except Exception as e:
             print("Error:", str(e))
             GLib.idle_add(self.show_error_dialog, str(e))
+
+    def show_alert_dialog(self, message):
+        dialog = Gtk.MessageDialog(
+            transient_for=self,
+            flags=0,
+            message_type=Gtk.MessageType.INFO,
+            buttons=Gtk.ButtonsType.OK,
+            text="Server Started",
+        )
+        dialog.format_secondary_text(message)
+        dialog.run()
+        dialog.destroy()
+
+    def show_run_dialog(self, message):
+        dialog = Gtk.MessageDialog(
+            transient_for=self,
+            flags=0,
+            message_type=Gtk.MessageType.INFO,
+            buttons=Gtk.ButtonsType.OK,
+            text="Server Ran Something",
+        )
+        dialog.format_secondary_text(message)
+        dialog.run()
+        dialog.destroy()
 
     def show_error_dialog(self, message):
         dialog = Gtk.MessageDialog(
