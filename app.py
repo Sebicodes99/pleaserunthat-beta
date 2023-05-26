@@ -2,8 +2,13 @@ import socket
 import os
 import gi
 import threading
+
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib
+
+# Initialize Gtk
+Gtk.init()
+
 
 class MainWindow(Gtk.Window):
     def __init__(self):
@@ -165,6 +170,18 @@ class ClientWindow(Gtk.Window):
         except Exception as e:
             print("Error:", str(e))
             GLib.idle_add(self.show_error_dialog, str(e))
+
+    def show_error_dialog(self, message):
+        dialog = Gtk.MessageDialog(
+            transient_for=self,
+            flags=0,
+            message_type=Gtk.MessageType.ERROR,
+            buttons=Gtk.ButtonsType.OK,
+            text="Client Error",
+        )
+        dialog.format_secondary_text(message)
+        dialog.run()
+        dialog.destroy()
 
     def show_typing_window(self, client_socket):
         typing_window = TypingWindow(self, client_socket)
