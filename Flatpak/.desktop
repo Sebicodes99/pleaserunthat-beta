@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Version=1.0
 Type=Application
-Terminal=true
+Terminal=false
 Exec=runner.sh
 Name=PleaseRunThat
 Icon=io.github.Sebicodes99.Prt
