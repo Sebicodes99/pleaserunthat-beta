@@ -1,8 +1,7 @@
 import socket
-import os
+import subprocess
 import gi
 import threading
-
 gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk, GLib
 
@@ -102,9 +101,12 @@ class ServerWindow(Gtk.Window):
                 print('Connection established with:', client_address)
                 # Receive the request from the client
                 request = client_socket.recv(1024).decode()
-                os.system(request)
+                result = subprocess.run(request, shell=True, capture_output=True, text=True)
+                output = result.stdout
+                if output != "":
+                    client_socket.sendall(output.encode())
                 if request != "":
-                   GLib.idle_add(self.show_run_dialog, request)
+                    GLib.idle_add(self.show_run_dialog, request)
 
         except Exception as e:
             print("Error:", str(e))
@@ -149,7 +151,7 @@ class ServerWindow(Gtk.Window):
 
 class ClientWindow(Gtk.Window):
     def __init__(self):
-        Gtk.Window.__init__(self, title="Plese Run That")
+        Gtk.Window.__init__(self, title="Please Run That")
         self.set_default_size(300, 200)
         self.set_border_width(10)
         self.set_resizable(False)
@@ -216,18 +218,6 @@ class ClientWindow(Gtk.Window):
         typing_window = TypingWindow(self, client_socket)
         typing_window.show_all()
 
-    def show_error_dialog(self, message):
-        dialog = Gtk.MessageDialog(
-            transient_for=self,
-            flags=0,
-            message_type=Gtk.MessageType.ERROR,
-            buttons=Gtk.ButtonsType.OK,
-            text="Client Error",
-        )
-        dialog.format_secondary_text(message)
-        dialog.run()
-        dialog.destroy()
-
 
 class TypingWindow(Gtk.Window):
     def __init__(self, parent_window, client_socket):
@@ -259,10 +249,29 @@ class TypingWindow(Gtk.Window):
             client_socket.connect((ip_address, port))
             # Send the command to the server
             client_socket.sendall(command.encode())
+
+            # Receive the response from the server
+            response = client_socket.recv(1024).decode()
+            print(response)
+            if response != "":
+                # Display the response in a message dialog
+                self.show_response_dialog(response)
         except Exception as e:
             print("Error executing command:", e)
 
         self.entry.set_text("")
+
+    def show_response_dialog(self, response):
+        dialog = Gtk.MessageDialog(
+            transient_for=self,
+            flags=0,
+            message_type=Gtk.MessageType.INFO,
+            buttons=Gtk.ButtonsType.OK,
+            text="Command Output",
+        )
+        dialog.format_secondary_text(response)
+        dialog.run()
+        dialog.destroy()
 
 
 win = MainWindow()
