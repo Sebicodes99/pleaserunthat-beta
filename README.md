@@ -1,5 +1,5 @@
 # Please Run That
-An app for connecting to another computer with linux/macOS for executing command remotely
+An app for connecting to another computer with linux/macOS for executing commands remotely.
 
 ## Distribution
 The app is distributed via Flathub or by opening the app.py
